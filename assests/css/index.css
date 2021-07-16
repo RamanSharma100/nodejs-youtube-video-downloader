@@ -1,0 +1,174 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+.container {
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.container .bg-image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: url("https://images.pexels.com/photos/38544/imac-apple-mockup-app-38544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+	filter: blur(6px);
+	-webkit-filter: blur(6px);
+}
+.container .data {
+	width: auto;
+	height: auto;
+	text-align: center;
+}
+.container .data h1 {
+	font-size: 3.5rem;
+	font-weight: 800;
+	margin-bottom: 10%;
+}
+.container .data form {
+	padding: 5px;
+	margin-bottom: 10%;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+	background: rgba(255, 255, 255, 0.05);
+}
+.container .data form input {
+	width: 85%;
+	height: 100%;
+	padding: 10px 15px;
+	border: none;
+	outline: none;
+}
+.container .data form button {
+	width: 14%;
+	height: 100%;
+	cursor: pointer;
+	background: #000;
+	color: #fff;
+	border: 1px solid #000;
+}
+
+.download-window {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.98);
+	transition: 0.5s all;
+	left: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.download-window.active {
+	left: 0;
+}
+.download-window .closeBtn {
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	font-size: 2.5rem;
+	cursor: pointer;
+}
+.download-window .videoInfo {
+	width: 60%;
+	height: auto;
+}
+.download-window .videoInfo .header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	column-gap: 12px;
+}
+.download-window .videoInfo .header .data h3 {
+	font-size: 2.5rem;
+	font-weight: 800;
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+.download-window .videoInfo .header .data p {
+	font-size: 0.99rem;
+	font-weight: 500;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	color: #444;
+}
+
+.download-window .videoInfo .download-video {
+	margin-top: 15px;
+	width: 100%;
+	height: 40px;
+}
+.download-window .videoInfo .download-video * {
+	height: 100%;
+}
+.download-window .videoInfo .download-video button {
+	width: 15%;
+	cursor: pointer;
+	background: #000;
+	color: #fff;
+	border: 1px solid #000;
+}
+.download-window .videoInfo .download-video select {
+	width: 84%;
+}
+
+.loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	background: rgba(255, 255, 255, 0.98);
+	transition: 0.5s all;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(0);
+}
+.loading.active {
+	transform: scale(1);
+}
+.loading div {
+	position: relative;
+	width: 60%;
+	height: 30px;
+	border: 1px solid #000;
+}
+.loading div::before {
+	position: absolute;
+	content: "Loading...";
+	top: 0;
+	width: 80%;
+	height: 100%;
+	background: #000;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: animate 0.8s forwards infinite;
+	transition: 0.5s all;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		right: 0;
+	}
+	50% {
+		left: 0;
+	}
+}
